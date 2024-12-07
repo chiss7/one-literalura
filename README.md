@@ -1,5 +1,7 @@
 # one-literalura
 
+![Badge](badge_literalura.png)
+
 This is a simple console-based application for managing books and authors. The application allows you to search for books online, save them in a database, and perform various operations on saved books and authors.
 
 ## Features
