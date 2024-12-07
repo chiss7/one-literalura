@@ -4,6 +4,7 @@ import com.chis.literalura.dto.AuthorRequest;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 public class Author {
@@ -70,12 +71,11 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthYear=" + birthYear +
-                ", deathYear=" + deathYear +
-                ", books=" + books +
-                '}';
+        return "---------- AUTHOR ----------\n" +
+                "Author: " + this.name + "\n" +
+                "Birth Year: " + this.birthYear + "\n" +
+                "Death Year: " + this.deathYear + "\n" +
+                "Books: " + this.books.stream().map(Book::getTitle).toList() + "\n" +
+                "----------------------------\n";
     }
 }

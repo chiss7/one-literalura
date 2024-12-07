@@ -49,6 +49,7 @@ public class Principal {
                     listSavedBooks();
                     break;
                 case 3:
+                    listSavedAuthors();
                     break;
                 case 4:
                     break;
@@ -61,6 +62,15 @@ public class Principal {
                     System.out.println("Invalid option");
                     break;
             }
+        }
+    }
+
+    private void listSavedAuthors() {
+        List<Author> authors = authorRepository.findAll();
+        if (!authors.isEmpty()) {
+            authors.forEach(System.out::println);
+        } else {
+            System.out.println("There are no authors saved in the database.");
         }
     }
 
