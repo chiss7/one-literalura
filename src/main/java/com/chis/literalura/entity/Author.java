@@ -65,7 +65,6 @@ public class Author {
     }
 
     public void setBooks(List<Book> books) {
-        //books.forEach(book -> book.setAuthor(this));
         this.books = books;
     }
 

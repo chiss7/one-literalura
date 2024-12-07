@@ -55,6 +55,7 @@ public class Principal {
                     listAuthorsAliveByYear();
                     break;
                 case 5:
+                    listBooksByLanguage();
                     break;
                 case 0:
                     System.out.println("Shut down...");
@@ -63,6 +64,23 @@ public class Principal {
                     System.out.println("Invalid option");
                     break;
             }
+        }
+    }
+
+    private void listBooksByLanguage() {
+        System.out.println("""
+                Write the abbreviation of the language you want:
+                spanish (es)
+                english (en)
+                french (fr)
+                portuguese (pt)
+                """);
+        String language = read.nextLine();
+        List<Book> books = bookRepository.findByLanguage(language);
+        if (!books.isEmpty()) {
+            books.forEach(System.out::println);
+        } else {
+            System.out.println("There are no books written in " + language);
         }
     }
 
