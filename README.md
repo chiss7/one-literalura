@@ -58,7 +58,11 @@ When you run the program, you'll be presented with the following menu options:
    ```bash
    mvn clean install
    ```
-3. Run the application:
+3. Run docker compose:
+   ```bash
+   docker compose up -d
+   ```   
+4. Run the application:
    ```bash
    java -jar target/library-management.jar
    ```
