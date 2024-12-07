@@ -52,6 +52,7 @@ public class Principal {
                     listSavedAuthors();
                     break;
                 case 4:
+                    listAuthorsAliveByYear();
                     break;
                 case 5:
                     break;
@@ -62,6 +63,17 @@ public class Principal {
                     System.out.println("Invalid option");
                     break;
             }
+        }
+    }
+
+    private void listAuthorsAliveByYear() {
+        System.out.println("Write the year: ");
+        int year = read.nextInt();
+        List<Author> authors = authorRepository.findAuthorsAliveInAGivenYear(year);
+        if (!authors.isEmpty()) {
+            authors.forEach(System.out::println);
+        } else {
+            System.out.println("There are no authors alive in " + year);
         }
     }
 
