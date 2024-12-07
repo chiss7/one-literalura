@@ -6,6 +6,7 @@ import com.chis.literalura.dto.Request;
 import com.chis.literalura.entity.Author;
 import com.chis.literalura.entity.Book;
 import com.chis.literalura.repository.AuthorRepository;
+import com.chis.literalura.repository.BookRepository;
 import com.chis.literalura.service.Api;
 import com.chis.literalura.service.JsonMapperImpl;
 
@@ -15,11 +16,13 @@ import java.util.Scanner;
 
 public class Principal {
     private final AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
     private final Scanner read = new Scanner(System.in);
     private final Api api = new Api();
     private final JsonMapperImpl mapper = new JsonMapperImpl();
-    public Principal(AuthorRepository authorRepository) {
+    public Principal(AuthorRepository authorRepository, BookRepository bookRepository) {
         this.authorRepository = authorRepository;
+        this.bookRepository = bookRepository;
     }
 
     public void menu() {
@@ -43,6 +46,7 @@ public class Principal {
                     searchBookByTitle();
                     break;
                 case 2:
+                    listSavedBooks();
                     break;
                 case 3:
                     break;
@@ -57,6 +61,15 @@ public class Principal {
                     System.out.println("Invalid option");
                     break;
             }
+        }
+    }
+
+    private void listSavedBooks() {
+        List<Book> books = bookRepository.findAll();
+        if (!books.isEmpty()) {
+            books.forEach(System.out::println);
+        } else {
+            System.out.println("There are no books saved in the database.");
         }
     }
 
