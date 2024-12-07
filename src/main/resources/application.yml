@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: literalura
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/literalura-db
+    username: chis
+    password: chis
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Hibernate will automatically update the database schema to match the entity classes. Only for dev
+    show-sql: true
+    database: postgresql  # This helps Hibernate understand how to interact with the database correctly.

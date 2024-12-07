@@ -1,0 +1,17 @@
+services:
+  postgres:
+    container_name: postgres-one
+    image: postgres
+    environment:
+      POSTGRES_USER: chis
+      POSTGRES_PASSWORD: chis
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: literalura-db
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres:
+    driver: local
