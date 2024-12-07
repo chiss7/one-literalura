@@ -78,11 +78,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", copyright=" + copyright +
-                ", downloadCount=" + downloadCount +
-                '}';
+        return "---------- BOOK ----------\n" +
+                "Title: " + this.title + "\n" +
+                "Author: " + this.author.getName() + "\n" +
+                "Language: " + this.language + "\n" +
+                "Download Count: " + this.downloadCount + "\n" +
+                "--------------------------\n";
     }
 }

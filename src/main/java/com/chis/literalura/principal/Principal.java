@@ -26,6 +26,7 @@ public class Principal {
         int option = -1;
         while(option != 0) {
             String menu = """
+                    Choose an option:
                     1 - Search book by title.
                     2 - Print saved books.
                     3 - Print saved authors.
@@ -79,6 +80,7 @@ public class Principal {
 
                 authorRepository.save(author);
                 System.out.println("Book saved successfully.");
+                System.out.println(book);
             } else {
                 System.out.println("There are no authors.");
             }
